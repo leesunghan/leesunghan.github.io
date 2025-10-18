@@ -21,6 +21,8 @@ AutoLISP Blueprint는 AutoLISP/Visual LISP 코드를 시각적으로 설계하�
 
 이 방식은 코드의 구조를 한눈에 파악하기 쉽게 만들어주며, 구문 오류를 줄이고 개발 속도를 크게 향상시킵니다. 특히 LISP에 익숙하지 않거나 시각적인 프로그래밍 방식을 선호하는 사용자에게 매우 유용합니다.
 
+![샘플이미지](https://github.com/leesunghan/leesunghan.github.io/blob/main/assets/ss1.png)
+
 ### 주요 기능
 
 *   **시각적 프로그래밍:** 드래그 앤 드롭 인터페이스로 LISP 함수(노드)를 배치하고 연결하여 로직을 설계합니다.
