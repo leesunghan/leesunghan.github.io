@@ -13,5 +13,10 @@
     "name": "iDwgTab Wallpaper", 
     "url": "./apps/idwgtab-wallpaper/index.html",
     "description": "idwgtab의 바탕 이미지 생성기"
-  }
+  },
+  { 
+    "name": "Express Calculator", 
+    "url": "./apps/express-calculator/index.html",
+    "description": "간단한 **계산기** 기능 엡 입니다."
+  }  
 ]
