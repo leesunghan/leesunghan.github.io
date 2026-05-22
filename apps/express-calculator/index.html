@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AutoCAD React Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet" href="/index.css">
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/assets/index-BKw6dm0v.js"></script>
+</head>
+<body class="bg-gray-800">
+    <div id="root"></div>
+    <script>
+        // This script simulates the AutoCAD environment for development in a standard browser.
+        // In the real AutoCAD environment, this 'autocad' object would be provided by the host application.
+        if (!window.autocad) {
+            console.log("Mock AutoCAD API initialized for development.");
+            window.autocad = {
+                executeScript: (script, callbackName) => {
+                    console.log(`[Mock AutoCAD] Received script: ${script}`);
+                    console.log(`[Mock AutoCAD] Will report result to: window.${callbackName}`);
+                    
+                    // Simulate asynchronous execution, like real inter-process communication
+                    setTimeout(() => {
+                        try {
+                            let result;
+                            // Check if it's a LISP command simulation for text creation
+                            if (script.trim().toLowerCase().startsWith('(command')) {
+                                console.log('[Mock AutoCAD] Simulating LISP command execution.');
+                                result = 'Command executed successfully.';
+                            } else {
+                                // Original calculation logic
+                                // The script is wrapped in a function to properly return the value.
+                                result = new Function(`return ${script}`)();
+                            }
+
+                            if (window[callbackName] && typeof window[callbackName] === 'function') {
+                                console.log(`[Mock AutoCAD] Reporting result: ${result}`);
+                                window[callbackName](String(result));
+                            }
+                        } catch (error) {
+                            console.error("[Mock AutoCAD] Error in script execution:", error);
+                            if (window[callbackName] && typeof window[callbackName] === 'function') {
+                                window[callbackName]("Error");
+                            }
+                        }
+                    }, 500); // 500ms delay to simulate latency
+                }
+            };
+        }
+    </script>
+</body>
+</html>
